@@ -14,6 +14,10 @@
     --default-header-bg: url('./images/bg-header-desktop.png');
 }
 
+* {
+    transition: all .4s;
+}
+
 
 /** Default style tags  **/
 
@@ -49,6 +53,7 @@ body {
     background-repeat: no-repeat;
     background-size: contain;
     font-family: var(--default-ff);
+    text-rendering: optimizeSpeed;
 }
 
 
@@ -79,9 +84,24 @@ main {
 
 .logo_app {
     max-width: 125px;
-    padding-bottom: 56px;
+    padding-bottom: 30px;
     cursor: pointer;
+    animation-name: example;
+    animation-duration: 10s;
 }
+
+/* The animation code */
+@keyframes drop-down {
+    from {
+        padding-bottom: 40px;
+    }
+
+    to {
+        padding-bottom: 56px;
+    }
+}
+
+
 
 .logo_app:hover {
     opacity: 70%;
@@ -152,7 +172,6 @@ main {
     position: relative;
     transform: translateX(-50px);
 }
-
 
 .second_section__content--title {
     font-size: 1.5rem;
@@ -288,4 +307,41 @@ ul li {
 ul li:hover {
     opacity: .7;
     transition: all .3s;
+}
+
+
+
+/** Animations **/
+
+
+
+.logo_app,
+.container {
+    -webkit-animation: dropDown 1.2s ease-in 1 1s;
+    animation: dropDown 1.2s ease-in 1;
+    transition: all ease-out 0.5s;
+}
+
+@-webkit-keyframes dropDown {
+    0% {
+        transform: translateY(-4rem);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes dropDown {
+    0% {
+        transform: translateY(-4rem);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
